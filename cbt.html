@@ -97,6 +97,8 @@
         div2.style.display = "none";
         next.style.display = "none";
         alert(`You scored ${score} out of ${questions.length}`);
+        clearInterval(si);
+        h1.innerHTML = `Time left: 0 sec`;
     }
 
     next.addEventListener("click", () => {
