@@ -1,0 +1,30 @@
+body{
+    font-family: sans-serif;
+    background-color: rgb(242, 242, 242);
+}
+section{
+    width: 60%;
+    background-color: white;
+    box-shadow: 0px 0px 10px grey;
+    border-radius: 20px;
+    border: 1px solid gainsboro;
+    margin: auto;
+    padding: 10px 20px;
+}
+h1, p, h3, h2{
+    text-align: center;
+}
+#div2{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+button{
+    background-color: darkblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
