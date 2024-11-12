@@ -34,7 +34,7 @@ const timer = document.getElementById("timer");
 let time = 60;
 let score = 0;
 
-function disQuestions() {
+const displayQuestions = () => {
   if (currentIndex < questions.length) {
     div1.innerHTML = `<h3>Question ${currentIndex + 1}</h3><p>${
       questions[currentIndex].que
@@ -48,16 +48,16 @@ function disQuestions() {
   } else {
     showResult();
   }
-}
+};
 
-function showResult() {
+const showResult = () => {
   div1.style.display = "none";
   div2.style.display = "none";
   nextBtn.style.display = "none";
   alert(`You scored ${score} out of ${questions.length}`);
-  clearInterval(si);
-  timer.innerHTML = `Time left: 0 sec`;
-}
+  clearInterval(timerInterval);
+  timer.textContent = `0 sec`;
+};
 
 nextBtn.addEventListener("click", () => {
   const selectedOption = document.querySelector('input[name="answer"]:checked');
@@ -66,22 +66,22 @@ nextBtn.addEventListener("click", () => {
       score++;
     }
     currentIndex++;
-    disQuestions();
+    displayQuestions();
   } else {
     alert("Please select an option");
   }
 });
-disQuestions();
+displayQuestions();
 
-let si = setInterval(() => {
+const timerInterval = setInterval(() => {
   if (time == 0) {
     alert("Time's up!!!");
-    clearInterval(si);
-    timer.innerHTML = `Time left: 0 sec`;
+    clearInterval(timerInterval);
+    timer.textContent = `0 sec`;
     alert(`You scored ${score} out of ${questions.length}`);
     return;
   } else {
-    timer.innerHTML = `Time left: ${time} sec`;
+    timer.textContent = `${time} sec`;
     time--;
   }
 }, 1000);

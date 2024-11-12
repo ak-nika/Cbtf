@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBT</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <h2 id="h1"></h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Time left: <span id="timer"></span></h1>
+
     <section>
-        <h1>Welcome to the Nika Quiz App <br>Answer the following questions</h1>
-        <main>
-            <div id="div1"></div>
-            <div id="div2"></div>
-            <button id="next">Next</button>
-        </main>
+      <h1>Welcome to the Nika Quiz App <br />Answer the following questions</h1>
+
+      <main>
+        <h3 id="questions"></h3>
+
+        <div id="options"></div>
+
+        <div class="buttons">
+          <button id="prev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#fff"
+            >
+              <path
+                d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"
+              />
+            </svg>
+          </button>
+          <button id="next">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#fff"
+            >
+              <path
+                d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </main>
     </section>
-</body>
-<!-- <script src="./script.js"></script> -->
+  </body>
+  <script src="./script.js"></script>
 </html>
