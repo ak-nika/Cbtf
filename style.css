@@ -16,6 +16,12 @@ h1 {
   color: #333333;
   text-align: center;
 }
+p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  text-align: center;
+}
 section {
   width: 60%;
   display: flex;
@@ -35,6 +41,15 @@ main h3 {
   font-weight: 500;
   color: #333333;
   text-align: center;
+}
+main .options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding-left: 30%;
+  margin-bottom: 2rem;
 }
 main .buttons {
   display: flex;
