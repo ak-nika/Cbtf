@@ -43,8 +43,10 @@ const displayQuestions = () => {
     optionsContainer.innerHTML = questions[currentIndex].options
       .map((option, index) => {
         `<div class="quiz-option">
-          <input type="radio" id="option${index}" name="answer" value="${option}"> 
-          <label for="option${index}">${option}</label>
+          <input type="radio" id="option${
+            index + 1
+          }" name="answer" value="${option}"> 
+          <label for="option${index + 1}">${option}</label>
         </div>`;
       })
       .join("");
