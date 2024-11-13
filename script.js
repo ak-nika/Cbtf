@@ -41,10 +41,12 @@ const displayQuestions = () => {
       questions[currentIndex].question
     }</h3>`;
     optionsContainer.innerHTML = questions[currentIndex].options
-      .map(
-        (option) =>
-          `<div><input type="radio" name="answer" value="${option}"> ${option}</div>`
-      )
+      .map((option, index) => {
+        `<div class="quiz-option">
+          <input type="radio" id="option${index}" name="answer" value="${option}"> 
+          <label for="option${index}">${option}</label>
+        </div>`;
+      })
       .join("");
   } else {
     showResult();
@@ -52,10 +54,13 @@ const displayQuestions = () => {
 };
 
 const showResult = () => {
-  timer.innerText = 0;
+  timer.innerText = "00:00";
   clearInterval(timerInterval);
 
-  alert(`You scored ${score} out of ${questions.length}`);
+  optionsContainer.innerHTML = "";
+  nextBtn.style.visibility = "hidden";
+  previousBtn.style.visibility = "hidden";
+  questionsContainer.innerHTML = `<h1>You Scored ${score}/${questions.length}</h1>`;
 };
 
 nextBtn.addEventListener("click", () => {
@@ -81,12 +86,19 @@ displayQuestions();
 const timerInterval = setInterval(() => {
   if (time == 0) {
     alert("Time's up!!!");
-    clearInterval(timerInterval);
-    timer.innerText = `0 sec`;
-    alert(`You scored ${score} out of ${questions.length}`);
+
+    showResult();
     return;
   } else {
-    timer.innerText = `${time} sec`;
+    timer.innerText = time < 10 ? `00:0${time}` : `00:${time}`;
+
+    if (time <= 10) {
+      timer.style.color = "#ff6b6b";
+    } else if (time <= 20) {
+      timer.style.color = "#ffa726";
+    } else {
+      timer.style.color = "#999999";
+    }
     time--;
   }
 }, 1000);
