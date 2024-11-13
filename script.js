@@ -128,18 +128,19 @@ let score = 0;
 
 const displayQuestions = () => {
   if (currentIndex < questions.length) {
-    questionsContainer.innerHTML = `<p>Question ${currentIndex + 1}</p> <h3>${
-      questions[currentIndex].question
-    }</h3>`;
+    questionsContainer.innerHTML = `<p>Question ${currentIndex + 1} out of ${
+      questions.length
+    }</p> <h3>${questions[currentIndex].question}</h3>`;
     optionsContainer.innerHTML = questions[currentIndex].options
-      .map((option, index) => {
-        `<div class="quiz-option">
-          <input type="radio" id="option${
-            index + 1
-          }" name="answer" value="${option}"> 
-          <label for="option${index + 1}">${option}</label>
-        </div>`;
-      })
+      .map(
+        (option, index) =>
+          `<div class="quiz-option">
+            <input type="radio" id="option${
+              index + 1
+            }" name="answer" value="${option}"> 
+            <label for="option${index + 1}">${option}</label>
+          </div>`
+      )
       .join("");
   } else {
     showResult();
@@ -153,7 +154,7 @@ const showResult = () => {
   optionsContainer.innerHTML = "";
   nextBtn.style.visibility = "hidden";
   previousBtn.style.visibility = "hidden";
-  questionsContainer.innerHTML = `<h1>You Scored ${score}/${questions.length}</h1>`;
+  questionsContainer.innerHTML = `<h1>You scored ${score}/${questions.length}</h1>`;
 };
 
 nextBtn.addEventListener("click", () => {
@@ -162,7 +163,6 @@ nextBtn.addEventListener("click", () => {
     if (selectedOption.value === questions[currentIndex].correct) {
       score++;
     }
-
     currentIndex++;
     displayQuestions();
   } else {
@@ -179,9 +179,9 @@ displayQuestions();
 
 const timerInterval = setInterval(() => {
   if (time == 0) {
-    alert("Time is up!!!");
-
     showResult();
+
+    alert("Time's up!!!");
     return;
   } else {
     timer.innerText = time < 10 ? `00:0${time}` : `00:${time}`;
